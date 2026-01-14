@@ -1,34 +1,34 @@
-import React from "react";
-import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
-    <div className="w-full xl:h-screen flex items-center relative xl:p-7 py-0 px-2">
+    <div className="w-full min-h-screen flex bg-gray-100">
+      {/* Sidebar */}
       <Sidebar />
-      <div
-        className="
-    h-screen
-    xl:w-[calc(100%-250px)] 
-    w-[calc(100%-80px)]
-    bg-white 
-    xl:ml-[250px] 
-    ml-[80px] 
-    rounded-none 
-    xl:rounded-2xl 
-    flex 
-    flex-col 
-    xl:flex-row 
-    items-start 
-    border 
-    border-gray-200 
-    shadow-sm
-    p-6
-  "
-      >
-        {/* Content goes here */}
-        <Dashboard/>
+
+      {/* MAIN WRAPPER */}
+      <div className="flex-1 flex justify-center xl:ml-[250px] ml-[80px]">
         
+        {/* CONTENT PANEL */}
+        <div
+          className="
+            w-full
+            max-w-screen-2xl
+            bg-white
+            min-h-screen
+            xl:rounded-2xl
+            shadow-sm
+            border border-gray-200
+
+            p-4
+            sm:p-6
+            xl:p-10
+            2xl:p-12
+          "
+        >
+          <Dashboard />
+        </div>
       </div>
     </div>
   );

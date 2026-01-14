@@ -1,4 +1,10 @@
-import { CalendarDaysIcon, HomeIcon, DocumentTextIcon, ChartBarIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import {
+  CalendarDaysIcon,
+  HomeIcon,
+  DocumentTextIcon,
+  ChartBarIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/outline";
 import logo from "../assets/images/logo.png";
 
 const Sidebar = () => {
@@ -11,33 +17,48 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 xl:w-[250px] w-[80px] h-full flex flex-col py-8 px-4 border-r border-gray-200 bg-white shadow-sm">
+    <div
+      className="
+      fixed left-0 top-0 
+      xl:w-[250px] w-[80px] 
+      h-full 
+      flex flex-col 
+      py-10 px-5 
+      bg-[#111827] 
+      text-white 
+      shadow-lg
+      transition-all
+      "
+    >
       {/* Logo */}
-      <div className="w-full flex items-center justify-center xl:justify-start mb-10">
-        <img src={logo} alt="Logo" className="xl:w-[140px] w-12" />
+      <div className="w-full flex items-center justify-center xl:justify-start">
+        <img src={logo} className="xl:w-[55%] w-[60%]" />
       </div>
 
       {/* Menu */}
-      <nav className="flex flex-col gap-2 w-full">
-        {menuItems.map((item, idx) => (
+      <div className="w-full flex flex-col gap-2 mt-10">
+        {menuItems.map((item) => (
           <div
-            key={idx}
-            className={`flex items-center xl:justify-start justify-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-all
-              ${item.active ? "bg-blue-100 text-blue-600" : "text-gray-600 hover:bg-gray-100"}
+            className={`
+              w-full flex items-center 
+              gap-4 px-3 py-3
+              rounded-xl cursor-pointer
+              transition-all duration-200
+              ${
+                item.active
+                  ? "bg-indigo-600 text-white"
+                  : "hover:bg-gray-700 text-gray-300"
+              }
             `}
           >
-            <item.icon className={`w-6 h-6 ${item.active ? "text-blue-600" : "text-gray-500"}`} />
-            <span
-              className={`text-sm font-medium hidden xl:block ${
-                item.active ? "text-blue-600" : "text-gray-700"
-              }`}
-            >
+            <item.icon className="w-6 h-6" />
+            <span className="font-medium text-base xl:block hidden">
               {item.name}
             </span>
           </div>
         ))}
-      </nav>
-    </aside>
+      </div>
+    </div>
   );
 };
 
